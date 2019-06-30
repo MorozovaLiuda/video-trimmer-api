@@ -7,7 +7,7 @@ describe Video do
 
   describe '#url' do
     it 'returns video url' do
-      expect(video.url).to eq("/uploads/video/file/#{video.id}/video.avi")
+      expect(video.url).to eq("/spec/support/uploads/video/file/#{video.id}/video.avi")
     end
   end
 
