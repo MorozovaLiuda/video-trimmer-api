@@ -32,7 +32,7 @@ class Api::V1::VideosController < ApplicationController
   def update
     if @video.failed?
       @video.schedule!
-      render json: { status: 'Scheduled' }
+      render json: { status: 'Scheduled' }, status: :ok
     else
       render json: { errors: "Can't restart video with #{@video.status} status" }, status: :unprocessable_entity
     end

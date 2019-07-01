@@ -8,7 +8,7 @@ class Api::V1::UsersController < ApplicationController
   end
   def create
     user = User.create(user_params)
-    render status: :ok, json: { auth_token: user.auth_token }
+    render json: { auth_token: user.auth_token }, status: :ok
   end
 
   private

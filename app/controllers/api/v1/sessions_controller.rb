@@ -8,9 +8,9 @@ class Api::V1::SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
-      render status: :ok, json: { user_email: user.email, auth_token: user.auth_token }
+      render json: { user_email: user.email, auth_token: user.auth_token }, status: :ok
     else
-      render status: :unauthorized, json: { errors: 'Not authorized' }
+      render json: { errors: 'Not authorized' }, status: :unauthorized
     end
   end
 end
